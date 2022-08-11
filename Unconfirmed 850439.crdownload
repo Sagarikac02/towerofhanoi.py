@@ -1,0 +1,53 @@
+def shifting(L1,L2):
+  if(len(L2) == 0 or L1[0]<L2[0]):
+    L2.insert(0,L1[0])
+    L1.remove(L1[0])
+  else:
+    print('Move rejected.')
+
+def display(A,B,C):
+  print(f"Box A = {A}")
+  print(f"Box B = {B}")
+  print(f"Box C = {C}")
+
+def options():
+  print('Select from the following functions')
+  print('1. Shift one block from A to B')
+  print('2. Shift one block from A to C')
+  print('3. Shift one block from B to A')
+  print('4. Shift one block from B to C')
+  print('5. Shift one block from C to A')
+  print('6. Shift one block from C to B')
+  option = int(input('Enter the option number for your desired action: '))
+  return option
+
+def move(A,B,C,option):
+  if(option == 1):
+    shifting(A,B)
+  elif(option == 2):
+    shifting(A,C)
+  elif(option == 3):
+    shifting(B,A)
+  elif(option == 4):
+    shifting(B,C)
+  elif(option == 5):
+    shifting(C,A)
+  elif(option == 6):
+    shifting(C,B)
+  
+A = [1,2,3,4]
+B = []
+C = []
+
+while(C!=[1,2,3,4]):
+  display(A,B,C)
+  option = options()
+  move(A,B,C,option)
+
+if(C==[1,2,3,4]):
+  display(A,B,C)
+  print('You won')
+  
+
+
+
